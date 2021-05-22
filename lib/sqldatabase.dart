@@ -7,7 +7,7 @@ import 'database.dart';
 
 
 
-class DatabaseModel extends ChangeNotifier{
+class DatabaseNotifier extends ChangeNotifier{
 
   AppDatabase database = AppDatabase();
   List<MovieResult> _favoriteList = [];

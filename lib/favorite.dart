@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Movie.dart';
-import 'database_model.dart';
+import 'sqldatabase.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key key}) : super(key: key);
@@ -22,7 +22,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   void didChangeDependencies() {
-    Provider.of<DatabaseModel>(context,listen: false).getFavoriteList();
+    Provider.of<DatabaseNotifier>(context,listen: false).getFavoriteList();
     super.didChangeDependencies();
   }
   @override
@@ -31,7 +31,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
 
 
-    return Consumer<DatabaseModel>(
+    return Consumer<DatabaseNotifier>(
 
       builder: (BuildContext context, value, Widget child) {
         return Container(

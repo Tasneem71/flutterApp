@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/database_model.dart';
-import 'package:flutter_app/fetch_movie.dart';
+import 'package:flutter_app/sqldatabase.dart';
+import 'package:flutter_app/getMovies.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:provider/provider.dart';
@@ -10,12 +10,12 @@ import 'package:provider/provider.dart';
 import 'Movie.dart';
 import 'movie_details.dart';
 
-class MovieNowPlaying extends StatelessWidget{
+class Now extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
 
-    Provider.of<FetchMovieList>(context,listen: false).fetchMovies("now_playing");
+    Provider.of<FetchMovieList>(context,listen: false).getMovies("now_playing");
     return Consumer<FetchMovieList>(
       builder: (BuildContext context, value, Widget child) {
         return Container(
@@ -134,12 +134,12 @@ class MovieNowPlaying extends StatelessWidget{
 
 }
 
-class PopularMovies extends StatelessWidget{
+class Popular extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
 
-    Provider.of<FetchMovieList>(context,listen: false).fetchMovies("popular");
+    Provider.of<FetchMovieList>(context,listen: false).getMovies("popular");
     return Consumer<FetchMovieList>(
       builder: (BuildContext context, value, Widget child) {
         return Container(
@@ -258,12 +258,12 @@ class PopularMovies extends StatelessWidget{
 
 }
 
-class TopRatingMovies extends StatelessWidget{
+class TopRating extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
 
-    Provider.of<FetchMovieList>(context,listen: false).fetchMovies("top_rated");
+    Provider.of<FetchMovieList>(context,listen: false).getMovies("top_rated");
     return Consumer<FetchMovieList>(
       builder: (BuildContext context, value, Widget child) {
         return Container(
@@ -382,12 +382,12 @@ class TopRatingMovies extends StatelessWidget{
 
 }
 
-class UpcomingMovies extends StatelessWidget{
+class Upcoming extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
 
-    Provider.of<FetchMovieList>(context,listen: false).fetchMovies("upcoming");
+    Provider.of<FetchMovieList>(context,listen: false).getMovies("upcoming");
     return Consumer<FetchMovieList>(
       builder: (BuildContext context, value, Widget child) {
         return Container(

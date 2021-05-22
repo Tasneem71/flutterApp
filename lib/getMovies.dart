@@ -13,7 +13,7 @@ class FetchMovieList extends ChangeNotifier{
    //  this.movie = movie;
    // }
 
-  Future<List<MovieResult>>fetchMovies(String movieListType) async{
+  Future<List<MovieResult>>getMovies(String movieListType) async{
      _movie = [];
     print("Start Fetch Movies");
     var response = await Dio()

@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'database_model.dart';
-import 'favorite_screen.dart';
-import 'fetch_movie.dart';
-import 'now_playing_list.dart';
+import 'sqldatabase.dart';
+import 'favorite.dart';
+import 'getMovies.dart';
+import 'Lists.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<FetchMovieList>(
             create: (_) => FetchMovieList(),
           ),
-          ChangeNotifierProvider<DatabaseModel >(
-            create: (_) => DatabaseModel() ,
+          ChangeNotifierProvider<DatabaseNotifier >(
+            create: (_) => DatabaseNotifier() ,
           ),
         ],
         child: MaterialApp(
@@ -74,10 +74,10 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            MovieNowPlaying(),
-            PopularMovies(),
-            TopRatingMovies(),
-            UpcomingMovies(),
+            Now(),
+            Popular(),
+            TopRating(),
+            Upcoming(),
           ],
         ),
       ),
